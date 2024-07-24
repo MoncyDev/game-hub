@@ -1,4 +1,4 @@
-import { Platform } from "../hooks/useGames";
+import { Platform } from "../hooks/usePlatform";
 import {
   FaWindows,
   FaPlaystation,
