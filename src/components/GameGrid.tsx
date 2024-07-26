@@ -1,4 +1,4 @@
-import { Box, Button, SimpleGrid, Spinner, Text } from "@chakra-ui/react";
+import { Box, SimpleGrid, Spinner, Text } from "@chakra-ui/react";
 import useGames from "../hooks/useGames";
 import GameCard from "./GameCard";
 import GameCardSkeleton from "./GameCardSkeleton";
@@ -21,20 +21,9 @@ const GameGrid = () => {
         dataLength={fetchedGamesCount}
         hasMore={!!hasNextPage}
         next={() => fetchNextPage()}
-        loader={
-          <SimpleGrid
-            columns={{ sm: 1, md: 2, lg: 3, xl: 4 }}
-            marginTop={5}
-            spacing={6}
-          >
-            {skeletons.map((skeleton) => (
-              <GameCardContainer key={skeleton}>
-                <GameCardSkeleton />
-              </GameCardContainer>
-            ))}
-          </SimpleGrid>
-        }
-        scrollThreshold={0.98}
+        loader={<Spinner marginTop={6} />}
+        scrollThreshold={0.95}
+        style={{ overflow: "visible" }}
       >
         <SimpleGrid columns={{ sm: 1, md: 2, lg: 3, xl: 4 }} spacing={6}>
           {isLoading &&

@@ -1,4 +1,11 @@
-import { Card, CardBody, Heading, HStack, Image } from "@chakra-ui/react";
+import {
+  Card,
+  CardBody,
+  Heading,
+  HStack,
+  Image,
+  useColorModeValue,
+} from "@chakra-ui/react";
 import Game from "../entities/Game";
 import PlatformIconList from "./PlatformIconList";
 import CriticScore from "./CriticScore";
@@ -11,8 +18,9 @@ interface Props {
 }
 
 const GameCard = ({ game }: Props) => {
+  const bg = useColorModeValue("#EDEDED", "");
   return (
-    <Card>
+    <Card bg={bg}>
       <Link to={"/games/" + game.slug}>
         <Image src={getCroppedImageUrl(game.background_image)} />
         <CardBody>
