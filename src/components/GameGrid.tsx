@@ -8,7 +8,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 
 const GameGrid = () => {
   const { data, error, isLoading, fetchNextPage, hasNextPage } = useGames();
-  const skeletons = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+  const skeletons = [1, 2, 3, 4, 5, 6, 7, 8];
 
   if (error) return <Text>{error.message}</Text>;
 
@@ -21,7 +21,20 @@ const GameGrid = () => {
         dataLength={fetchedGamesCount}
         hasMore={!!hasNextPage}
         next={() => fetchNextPage()}
-        loader={<Spinner />}
+        loader={
+          <SimpleGrid
+            columns={{ sm: 1, md: 2, lg: 3, xl: 4 }}
+            marginTop={5}
+            spacing={6}
+          >
+            {skeletons.map((skeleton) => (
+              <GameCardContainer key={skeleton}>
+                <GameCardSkeleton />
+              </GameCardContainer>
+            ))}
+          </SimpleGrid>
+        }
+        scrollThreshold={0.98}
       >
         <SimpleGrid columns={{ sm: 1, md: 2, lg: 3, xl: 4 }} spacing={6}>
           {isLoading &&
