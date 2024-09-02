@@ -7,6 +7,7 @@ import theme from "./theme";
 import "./index.css";
 import { RouterProvider } from "react-router-dom";
 import router from "./routes";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 
 const queryCLient = new QueryClient();
 
@@ -19,5 +20,6 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
         <ReactQueryDevtools />
       </QueryClientProvider>
     </ChakraProvider>
+    <SpeedInsights />
   </React.StrictMode>
 );
