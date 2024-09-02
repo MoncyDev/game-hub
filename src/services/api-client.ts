@@ -6,12 +6,12 @@ export interface FetchResponse<T> {
   results: T[];
 }
 
-const apikey = import.meta.env.VITE_GHUB_API_KEY;
+const apiKey = import.meta.env.VITE_GHUB_API_KEY;
 
 const axiosInstance = axios.create({
   baseURL: "https://api.rawg.io/api",
   params: {
-    key: apikey,
+    key: apiKey,
   },
 });
 
