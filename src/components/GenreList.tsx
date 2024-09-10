@@ -23,7 +23,7 @@ const GenreList = () => {
   return (
     <>
       <Heading fontSize="2xl" marginBottom={3}>
-        Genres
+        Game Genres
       </Heading>
       <List>
         {data?.results.map((genre) => (
