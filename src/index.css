@@ -1,3 +1,6 @@
-form{
-    width: 100%;
+form {
+  width: 100%;
+}
+.genre-list::-webkit-scrollbar {
+  visibility: hidden;
 }

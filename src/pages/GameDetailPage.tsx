@@ -22,7 +22,13 @@ const GameDetailPage = () => {
   if (error || !game) throw error;
 
   return (
-    <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
+    <SimpleGrid
+      columns={{ base: 1, md: 2 }}
+      spacing={10}
+      margin="auto"
+      padding={5}
+      paddingTop={0}
+    >
       <GridItem>
         <Box
           position={{ base: "inherit", md: "sticky" }}

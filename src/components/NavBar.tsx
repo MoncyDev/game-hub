@@ -10,6 +10,7 @@ const NavBar = () => {
   return (
     <HStack
       padding="10px"
+      paddingLeft="5px"
       position="sticky"
       top={0}
       bg={bg}
