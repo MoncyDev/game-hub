@@ -13,10 +13,9 @@ const SearchInput = () => {
     <form
       onSubmit={(event) => {
         event.preventDefault();
-        if (ref.current) {
-          setSearchText(ref.current.value);
-          navigate("/");
-        }
+
+        setSearchText(ref.current!.value);
+        navigate("/");
       }}
     >
       <InputGroup>
@@ -26,6 +25,10 @@ const SearchInput = () => {
           borderRadius={20}
           placeholder="Search games..."
           variant="filled"
+          onChange={(event) => {
+            event.preventDefault();
+            setSearchText(ref.current!.value);
+          }}
         />
       </InputGroup>
     </form>
