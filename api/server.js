@@ -7,7 +7,6 @@ require("dotenv").config();
 const app = express();
 const allowedOrigins = ["https://gamehub.moncy.dev"];
 
-app.use(helmet());
 app.use(
   cors({
     origin: function (origin, callback) {

@@ -6,7 +6,7 @@ export interface FetchResponse<T> {
   results: T[];
 }
 
-const jwt = import.meta.env.VITE_GHUB_JWT;
+const jwt = import.meta.env.VITE_GHUB_KEY;
 
 const axiosInstance = axios.create({
   baseURL: "/api/gamehub",
