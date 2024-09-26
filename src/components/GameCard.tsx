@@ -22,7 +22,7 @@ const GameCard = ({ game }: Props) => {
   return (
     <Card bg={bg}>
       <Link to={"/games/" + game.slug}>
-        <Image src={getCroppedImageUrl(game.background_image)} />
+        <Image src={getCroppedImageUrl(game.background_image)} width="100%"/>
         <CardBody>
           <HStack justifyContent="space-between" marginBottom={3}>
             <PlatformIconList

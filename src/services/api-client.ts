@@ -6,13 +6,8 @@ export interface FetchResponse<T> {
   results: T[];
 }
 
-const apiKey = import.meta.env.VITE_GHUB_API_KEY;
-
 const axiosInstance = axios.create({
-  baseURL: "https://api.rawg.io/api",
-  params: {
-    key: apiKey,
-  },
+  baseURL: "/api/gamehub",
 });
 
 class APIClient<T> {
@@ -21,14 +16,20 @@ class APIClient<T> {
     this.endpoint = endpoint;
   }
   getAll = async (config: AxiosRequestConfig) => {
-    const res = await axiosInstance.get<FetchResponse<T>>(
-      this.endpoint,
-      config
-    );
+    const res = await axiosInstance.get<FetchResponse<T>>("/", {
+      headers: {
+        endpoint: this.endpoint,
+      },
+      params: config.params,
+    });
     return res.data;
   };
   get = async (id: number | string) => {
-    const res = await axiosInstance.get<T>(this.endpoint + "/" + id);
+    const res = await axiosInstance.get<T>("/" + id, {
+      headers: {
+        endpoint: this.endpoint,
+      },
+    });
     return res.data;
   };
 }
