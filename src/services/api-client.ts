@@ -6,6 +6,8 @@ export interface FetchResponse<T> {
   results: T[];
 }
 
+const jwt = import.meta.env.VITE_GHUB_JWT;
+
 const axiosInstance = axios.create({
   baseURL: "/api/gamehub",
 });
@@ -19,6 +21,7 @@ class APIClient<T> {
     const res = await axiosInstance.get<FetchResponse<T>>("/", {
       headers: {
         endpoint: this.endpoint,
+        Authorization: jwt,
       },
       params: config.params,
     });
@@ -28,6 +31,7 @@ class APIClient<T> {
     const res = await axiosInstance.get<T>("/" + id, {
       headers: {
         endpoint: this.endpoint,
+        Authorization: jwt,
       },
     });
     return res.data;
